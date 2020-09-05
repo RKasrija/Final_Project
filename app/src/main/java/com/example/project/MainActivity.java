@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText Password;
     private TextView Info;
     private Button Login;
-    private int counter = 5;
+    private int counter = 3;
 
 
     @Override
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Password = (EditText)findViewById(R.id.etpassword);
         Info = (TextView)findViewById(R.id.tvinfo);
         Login = (Button)findViewById(R.id.btnlogin);
-        Info.setText("No of attempts remaining: 5");
+        Info.setText("Total attempts remaining: 3");
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private  void  validate(String username, String userPassword) {
-        if ((username == "Admin") && (userPassword == "1234")) {
+        if ((username == "Raghav") && (userPassword == "123456")) {
             Intent intent = new Intent(MainActivity.this, Login.class);
             startActivity(intent);
         } else {
             counter--;
 
-            Info.setText("No of attempts remaining:" + String.valueOf(counter));
+            Info.setText("Total attempts remaining:" + String.valueOf(counter));
             if (counter == 0) {
                 Login.setEnabled(false);
             }
